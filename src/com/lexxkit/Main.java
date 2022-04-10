@@ -3,7 +3,7 @@ package com.lexxkit;
 public class Main {
 
     public static void main(String[] args) {
-	    // Task 1
+        // Task 1
         int clientOS = 0;
 
         if (clientOS == 0) {
@@ -82,8 +82,8 @@ public class Main {
         // Task 6
         System.out.println("\nTask 6\n");
 
-        int age = 19;
-        int salary = 58_000;
+        int age = 25;
+        int salary = 60_000;
 
         int creditLimit = 0;
 
@@ -121,9 +121,12 @@ public class Main {
         }
 
         double maxAllowedPayment = salary * MAX_MONTHLY_PAYMENT;
-        System.out.printf("Max payment based on salary of %d is %.2f rubles.", salary, maxAllowedPayment);
+        double totalCreditWithInterest = wantedSum + wantedSum * YEARLY_BASE_RATE * (LOAN_TERMS_MONTHS / 12);
+        double monthlyCreditPayment = totalCreditWithInterest / LOAN_TERMS_MONTHS;
+
+        String creditDecision = monthlyCreditPayment <= maxAllowedPayment ? "Approved" : "Denied";
+
+        System.out.printf("Max payment based on salary of %d is %.2f rubles.\nMonthly payment is %.2f rubles. %s.",
+                salary, maxAllowedPayment, monthlyCreditPayment, creditDecision);
     }
-
-
-
 }
